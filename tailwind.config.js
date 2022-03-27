@@ -18,6 +18,8 @@ module.exports = {
       blue: {
         azure: '#2C7BE5',
         oxford: '#0F172A',
+        alice: '#E3EBF6',
+        yonder: '#95AAC9',
       },
       green: {
         default: '#27AE60',
