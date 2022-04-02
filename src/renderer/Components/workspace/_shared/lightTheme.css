@@ -1,0 +1,157 @@
+/*
+  Name:       ethsomnia-light
+  Author:     daniel kipkemei (http://github.com/dann254)
+  Website:    http://github.com/dann254/ethsomnia
+*/
+
+/* editor */
+.lightEditor .CodeMirror {
+  background-color: transparent;
+  color: rgb(140, 140, 140);
+  height: 100%;
+}
+
+/* Gutters */
+.lightEditor .CodeMirror-gutters {
+  background:transparent;
+  color: rgba(130, 130, 130, .8);
+  border: none;
+}
+
+.lightEditor .CodeMirror-guttermarker,
+.lightEditor .CodeMirror-guttermarker-subtle,
+.lightEditor .CodeMirror-linenumber {
+  color: rgba(130, 130, 130, .8);
+}
+
+ /* Key */
+ .lightEditor .CodeMirror-line>span span:first-child.cm-string {
+  color: #3d9c62;
+}
+
+ /* arr-object Key */
+.lightEditor .cm-string.cm-property {
+  color: #3d9c62;
+}
+
+/* String Value */
+.lightEditor .cm-string {
+  color: #e5ca1e
+}
+
+/* Number value */
+.lightEditor .cm-number {
+  color: #6030bf;
+}
+
+/* nested key */
+.lightEditor .cm-property {
+  color: #3d9c62;
+}
+
+.lightEditor .CodeMirror-cursor {
+  border-left: 1px solid #000000;
+}
+/* .lightEditor.cm-fat-cursor .CodeMirror-cursor {
+  background-color: #5d6d5c80 !important;
+}
+.lightEditor .cm-animate-fat-cursor {
+  background-color: #5d6d5c80 !important;
+} */
+
+.lightEditor div.CodeMirror-selected {
+  background: rgba(224, 224, 224, .2);
+}
+
+.lightEditor.CodeMirror-focused div.CodeMirror-selected {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+.lightEditor .CodeMirror-line::selection,
+.lightEditor .CodeMirror-line>span::selection,
+.lightEditor .CodeMirror-line>span>span::selection {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+.lightEditor .CodeMirror-line::-moz-selection,
+.lightEditor .CodeMirror-line>span::-moz-selection,
+.lightEditor .CodeMirror-line>span>span::-moz-selection {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+.lightEditor .CodeMirror-activeline-background {
+  background: rgba(224, 224, 224, .9);
+}
+
+.lightEditor .cm-keyword {
+  color: #C792EA;
+}
+
+.lightEditor .cm-operator {
+  color: #89DDFF;
+}
+
+.lightEditor .cm-variable-2 {
+  color: #EEFFFF;
+}
+
+.lightEditor .cm-variable-3,
+.lightEditor .cm-type {
+  color: #f07178;
+}
+
+.lightEditor .cm-builtin {
+  color: #FFCB6B;
+}
+
+.lightEditor .cm-atom {
+  color: #F78C6C;
+}
+
+.lightEditor .cm-def {
+  color: #82AAFF;
+}
+
+.lightEditor .cm-string-2 {
+  color: #f07178;
+}
+
+.lightEditor .cm-comment {
+  color: #546E7A;
+}
+
+.lightEditor .cm-variable {
+  color: #f07178;
+}
+
+.lightEditor .cm-tag {
+  color: #FF5370;
+}
+
+.lightEditor .cm-meta {
+  color: #FFCB6B;
+}
+
+.lightEditor .cm-attribute {
+  color: #C792EA;
+}
+
+.lightEditor .cm-qualifier {
+  color: #DECB6B;
+}
+
+.lightEditor .cm-variable-3,
+.lightEditor .cm-type {
+  color: #DECB6B;
+}
+
+
+.lightEditor .cm-error {
+  color: rgba(255, 255, 255, 1.0);
+  background-color: #FF5370;
+}
+
+.lightEditor .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

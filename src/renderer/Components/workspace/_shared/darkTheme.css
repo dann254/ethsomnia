@@ -1,0 +1,160 @@
+/*
+  Name:       ethsomnia-dark
+  Author:     daniel kipkemei (http://github.com/dann254)
+  Website:    http://github.com/dann254/ethsomnia
+*/
+
+/* editor */
+.darkEditor .CodeMirror {
+  background-color: transparent;
+  color: #FFFFFF;
+  height: 100%;
+}
+
+/* Gutters */
+.darkEditor .CodeMirror-gutters {
+  background:transparent;
+  color: #828282;
+  border: none;
+}
+
+.darkEditor .CodeMirror-guttermarker,
+.darkEditor .CodeMirror-guttermarker-subtle,
+.darkEditor .CodeMirror-linenumber {
+  color: #828282;
+}
+
+ /* Key */
+ .darkEditor .CodeMirror-line>span span:first-child.cm-string {
+  color: #8fc860;
+}
+
+ /* arr-object Key */
+.darkEditor .cm-string.cm-property {
+  color: #8fc860;
+}
+
+/* String Value */
+.darkEditor .cm-string {
+  color: #e5ca1e
+}
+
+/* Number value */
+.darkEditor .cm-number {
+  color: #a896ff;
+}
+
+/* nested key */
+.darkEditor .cm-property {
+  color: #8fc860;
+}
+
+.darkEditor .CodeMirror-cursor {
+  border-left: 1px solid #FFFFFF;
+}
+/* .darkEditor.cm-fat-cursor .CodeMirror-cursor {
+  background-color: #5d6d5c80 !important;
+}
+.darkEditor .cm-animate-fat-cursor {
+  background-color: #5d6d5c80 !important;
+} */
+
+.darkEditor div.CodeMirror-selected {
+  background: rgba(224, 224, 224, .2);
+}
+
+.darkEditor.CodeMirror-focused div.CodeMirror-selected {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+.darkEditor .CodeMirror-line::selection,
+.darkEditor .CodeMirror-line>span::selection,
+.darkEditor .CodeMirror-line>span>span::selection {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+.darkEditor .CodeMirror-line::-moz-selection,
+.darkEditor .CodeMirror-line>span::-moz-selection,
+.darkEditor .CodeMirror-line>span>span::-moz-selection {
+  background: rgba(128, 203, 196, 0.2);
+}
+
+.darkEditor .CodeMirror-activeline-background {
+  background: rgba(224, 224, 224, .2);
+}
+.darkEditor .CodeMirror-activeline-gutter {
+  background: rgba(224, 224, 224, .2);
+}
+
+.darkEditor .cm-keyword {
+  color: #C792EA;
+}
+
+.darkEditor .cm-operator {
+  color: #89DDFF;
+}
+
+.darkEditor .cm-variable-2 {
+  color: #EEFFFF;
+}
+
+.darkEditor .cm-variable-3,
+.darkEditor .cm-type {
+  color: #f07178;
+}
+
+.darkEditor .cm-builtin {
+  color: #FFCB6B;
+}
+
+.darkEditor .cm-atom {
+  color: #F78C6C;
+}
+
+.darkEditor .cm-def {
+  color: #82AAFF;
+}
+
+.darkEditor .cm-string-2 {
+  color: #f07178;
+}
+
+.darkEditor .cm-comment {
+  color: #546E7A;
+}
+
+.darkEditor .cm-variable {
+  color: #f07178;
+}
+
+.darkEditor .cm-tag {
+  color: #FF5370;
+}
+
+.darkEditor .cm-meta {
+  color: #FFCB6B;
+}
+
+.darkEditor .cm-attribute {
+  color: #C792EA;
+}
+
+.darkEditor .cm-qualifier {
+  color: #DECB6B;
+}
+
+.darkEditor .cm-variable-3,
+.darkEditor .cm-type {
+  color: #DECB6B;
+}
+
+
+.darkEditor .cm-error {
+  color: rgba(255, 255, 255, 1.0);
+  background-color: #FF5370;
+}
+
+.darkEditor .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

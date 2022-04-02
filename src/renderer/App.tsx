@@ -1,5 +1,5 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 
 import Nav from './Components/nav';
 import Dashboard from './Components/dashboard';

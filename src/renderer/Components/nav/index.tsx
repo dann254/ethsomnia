@@ -1,30 +1,14 @@
 import icon from '../../../../assets/icon.svg';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Sun, Moon, Settings } from 'react-feather';
 import { Link } from 'react-router-dom';
+import { useDarkMode } from '../../Hooks/useDarkMode';
 
 const Nav: React.FC = () => {
-  const [darkTheme, setDarkTheme] = useState<boolean>(true);
-
-  const toggleTheme = async () => {
-    await window.darkMode.toggle('dark');
-    setDarkTheme(!darkTheme);
-  };
-
-  useEffect(() => {
-    if (window.matchMedia) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setDarkTheme(true);
-      } else {
-        setDarkTheme(false);
-      }
-    } else {
-      setDarkTheme(true);
-    }
-  }, []);
+  const [darkMode, toggleTheme] = useDarkMode();
 
   return (
-    <div className="flex justify-between h-10 px-3 py-1 border-b border-blue-yonder dark:border-white-default/25">
+    <div className="flex justify-between h-10 px-3 py-1 border-b border-blue-yonder dark:border-white-default/25 fixed w-full text-sm">
       <Link to="/">
         <button className="flex space-x-2 items-center">
           <img src={icon} alt="" width="30px" />
@@ -40,7 +24,7 @@ const Nav: React.FC = () => {
           Connect
         </button>
         <button className="h-auto" onClick={toggleTheme}>
-          {darkTheme ? <Sun size={18} /> : <Moon size={18} />}
+          {darkMode ? <Sun size={18} /> : <Moon size={18} />}
         </button>
       </div>
     </div>

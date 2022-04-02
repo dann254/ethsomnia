@@ -5,7 +5,7 @@ module.exports = {
       primary: '#2C7BE5',
       secondary: '#27AE60',
       tetiary: '#F2C94C',
-      error: '#EB5757',
+      danger: '#EB5757',
       warning: '#F2994A',
       success: '#6FCF97',
 
