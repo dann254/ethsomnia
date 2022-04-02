@@ -1,9 +1,11 @@
 import { Circle, Disc, LifeBuoy, StopCircle } from 'react-feather';
+import ContractSection from './contractSection';
 
 const Sidebar: React.FC = () => {
   return (
     <div className=" w-52 pt-5">
-      <div className="flex space-x-2 items-center py-1 hover:bg-white-off-white/25 px-3 cursor-default">
+      <ContractSection />
+      {/* <div className="flex space-x-2 items-center py-1 hover:bg-white-off-white/25 px-3 cursor-default">
         <div className="text-primary">
           <Disc size={18} strokeWidth={2} />
         </div>
@@ -26,7 +28,7 @@ const Sidebar: React.FC = () => {
           <Circle size={18} strokeWidth={2} />
         </div>
         <div>pure</div>
-      </div>
+      </div> */}
     </div>
   );
 };
