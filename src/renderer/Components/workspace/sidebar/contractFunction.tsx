@@ -22,9 +22,13 @@ const ContractFunction: React.FC<IFunctionProps> = (props) => {
   return (
     <div>
       <div
-        className={`flex space-x-2 items-center py-1 hover:bg-white-off-white/25 cursor-default ${
-          isChild ? 'pr-3 pl-6' : 'px-3'
-        } ${isActive ? 'border-l border-primary' : ''}`}
+        className={`flex space-x-2 items-center py-1 mb-1 hover:bg-black/25 dark:hover:bg-white-off-white/25  cursor-default ${
+          isActive ? 'bg-black/10  dark:bg-white-off-white/10' : ''
+        } ${isChild ? 'pr-3 pl-6' : 'px-3'} ${
+          isActive
+            ? 'border-l border-primary text-black dark:text-white-default'
+            : ''
+        }`}
       >
         {stateMutability === 'view' && (
           <div className="text-primary">

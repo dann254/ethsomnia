@@ -1,6 +1,14 @@
 import Editor from '../_shared/editor';
 import { ExternalLink, ChevronDown, Copy } from 'react-feather';
 import { useState } from 'react';
+import { DefaultDropdown } from '../../shared/dropDowns';
+
+let dropdownButton = (
+  <div className="flex flex-nowrap items-center space-x-1 px-2 cursor-pointer whitespace-nowrap">
+    <span>3 minutes ago</span>
+    <ChevronDown size={14} />
+  </div>
+);
 
 const ResponsePane: React.FC = () => {
   const [showTab1, setShowTab1] = useState(true);
@@ -34,6 +42,17 @@ const ResponsePane: React.FC = () => {
     }
   };
 
+  const options = [
+    [
+      {
+        name: 'Success: just now',
+      },
+      {
+        name: 'Error: yesterday',
+      },
+    ],
+  ];
+
   return (
     <div className="h-full">
       <div className="flex justify-between items-center w-full h-8 border-b border-blue-yonder/75 dark:border-white-default/25">
@@ -42,12 +61,11 @@ const ResponsePane: React.FC = () => {
           <div className="bg-black/25 dark:bg-white-default/25 px-2 py-0.5">
             0.31 ms
           </div>
-          <Copy size={16} />
+          <span>
+            <Copy size={16} />
+          </span>
         </div>
-        <div className="flex flex-nowrap items-center space-x-1 px-2 cursor-pointer whitespace-nowrap">
-          <span>3 minutes ago</span>
-          <ChevronDown size={14} />
-        </div>
+        <DefaultDropdown toggleButton={dropdownButton} options={options} />
       </div>
       <div className="w-full h-8 flex ">
         <div className="flex flex-nowrap overflow-x-scroll">

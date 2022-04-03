@@ -76,12 +76,8 @@ const ContractSection: React.FC = () => {
     },
   ];
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ');
-  }
-
   return (
-    <div className=" w-full pt-5">
+    <div className=" w-full pt-3 text-black/50 dark:text-white-default/50">
       {/* <ContractFunction name="view" stateMutability="view" isActive={false} /> */}
       <nav className="flex-1 space-y-1 bg-white" aria-label="Sidebar">
         {navigation.map((item) =>
@@ -96,20 +92,21 @@ const ContractSection: React.FC = () => {
               {({ open }) => (
                 <>
                   <Disclosure.Button
-                    className={classNames(
+                    className={`flex space-x-2 items-center w-full py-1 hover:bg-black/25 dark:hover:bg-white-off-white/25  pl-3 pr-1 cursor-default w-max ${
                       item.isActive
-                        ? 'bg-gray-100 text-gray-900'
-                        : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                      'flex space-x-2 items-center w-full py-1 hover:bg-white-off-white/25 pl-3 pr-1 cursor-default'
-                    )}
+                        ? 'bg-gray-100 text-black dark:text-white-default '
+                        : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    }`}
                   >
                     <Folder size={16} strokeWidth={2} />
                     <span className="flex-1 text-left">{item.name}</span>
-                    {open ? (
-                      <ChevronDown size={18} strokeWidth={2} />
-                    ) : (
-                      <ChevronRight size={18} strokeWidth={2} />
-                    )}
+                    <span>
+                      {open ? (
+                        <ChevronDown size={18} strokeWidth={2} />
+                      ) : (
+                        <ChevronRight size={18} strokeWidth={2} />
+                      )}
+                    </span>
                   </Disclosure.Button>
                   <Disclosure.Panel className="">
                     {item.children.map((subItem) => (
