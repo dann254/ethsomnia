@@ -1,11 +1,21 @@
 import icon from '../../../../assets/icon.svg';
-import React from 'react';
+import React, { useState } from 'react';
+import { chainList, Chains } from 'eth-chains';
 import { Sun, Moon, Settings } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { useDarkMode } from '../../Hooks/useDarkMode';
+import { DefaultModal } from '../shared/modals';
 
 const Nav: React.FC = () => {
   const [darkMode, toggleTheme] = useDarkMode();
+  const [open, setOpen] = useState(false);
+
+  const evmChains: Chains = chainList;
+  console.log({ evmChains });
+
+  const closeModal = () => {
+    setOpen(!open);
+  };
 
   return (
     <div className="flex justify-between h-10 px-3 py-1 border-b border-blue-yonder dark:border-white-default/25 fixed w-full text-sm">
@@ -17,7 +27,7 @@ const Nav: React.FC = () => {
       </Link>
 
       <div className="flex space-x-6">
-        <button className="">
+        <button className="" onClick={() => setOpen(true)}>
           <Settings size={18} strokeWidth={1.5} />
         </button>
         <button className="px-4 border border-blue-yonder/75 dark:border-white-default/25 rounded">
@@ -27,6 +37,12 @@ const Nav: React.FC = () => {
           {darkMode ? <Sun size={18} /> : <Moon size={18} />}
         </button>
       </div>
+      <DefaultModal title={'Settings'} open={open} closeModal={closeModal}>
+        <div className="">
+          <div>RPC urls</div>
+          <div></div>
+        </div>
+      </DefaultModal>
     </div>
   );
 };
