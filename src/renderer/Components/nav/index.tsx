@@ -5,6 +5,7 @@ import { Sun, Moon, Settings } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { useDarkMode } from '../../Hooks/useDarkMode';
 import { DefaultModal } from '../shared/modals';
+import { Combo } from '../shared/inputs/basicCombo';
 
 const Nav: React.FC = () => {
   const [darkMode, toggleTheme] = useDarkMode();
@@ -40,7 +41,10 @@ const Nav: React.FC = () => {
       <DefaultModal title={'Settings'} open={open} closeModal={closeModal}>
         <div className="">
           <div>RPC urls</div>
-          <div></div>
+          <div>
+            {/* <Combo /> */}
+            <Combo />
+          </div>
         </div>
       </DefaultModal>
     </div>

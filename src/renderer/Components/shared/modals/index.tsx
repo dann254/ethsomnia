@@ -49,7 +49,7 @@ export const DefaultModal: React.FC<ModalProps> = (props) => {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="relative inline-block align-top rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all mb-8 mt-20 mx-10 sm:p-6 bg-[#FFFFFF] dark:bg-[#2f363d] w-[90%]">
+            <div className="relative inline-block align-top rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all mb-8 mt-20 mx-10 sm:p-6 bg-[#FFFFFF] dark:bg-[#2f363d] w-[90%] h-[20rem]">
               <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
                 <button
                   type="button"
