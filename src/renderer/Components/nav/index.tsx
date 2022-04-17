@@ -1,18 +1,17 @@
 import icon from '../../../../assets/icon.svg';
 import React, { useState } from 'react';
-import { chainList, Chains } from 'eth-chains';
+import { chainList, Chains } from '../../helpers/eth-chains';
 import { Sun, Moon, Settings } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { useDarkMode } from '../../Hooks/useDarkMode';
 import { DefaultModal } from '../shared/modals';
-import { Combo } from '../shared/inputs/basicCombo';
+import AppSettings from './settings';
 
 const Nav: React.FC = () => {
   const [darkMode, toggleTheme] = useDarkMode();
   const [open, setOpen] = useState(false);
 
   const evmChains: Chains = chainList;
-  console.log({ evmChains });
 
   const closeModal = () => {
     setOpen(!open);
@@ -39,13 +38,7 @@ const Nav: React.FC = () => {
         </button>
       </div>
       <DefaultModal title={'Settings'} open={open} closeModal={closeModal}>
-        <div className="">
-          <div>RPC urls</div>
-          <div>
-            {/* <Combo /> */}
-            <Combo />
-          </div>
-        </div>
+        <AppSettings />
       </DefaultModal>
     </div>
   );

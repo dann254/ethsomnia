@@ -42,7 +42,7 @@ export const DefaultDropdown: React.FC<DropdownProps> = (props) => {
                       onClick={item.clickAction}
                       className={`
                    ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
-                    group flex items-center px-4 py-2 text-sm space-x-2
+                    group flex items-center px-4 py-2 text-sm space-x-2 cursor-pointer
                   `}
                     >
                       <span>{item.icon}</span>

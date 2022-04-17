@@ -2,6 +2,8 @@ import Cards from './cards';
 import { DefaultDropdown } from '../shared/dropDowns';
 import { ChevronDown } from 'react-feather';
 import { FilePlus, FolderPlus } from 'react-feather';
+import { DefaultModal } from '../shared/modals';
+import { useState } from 'react';
 
 let dropdownButton = (
   <div className="pl-4 pr-2 py-1 bg-primary rounded flex justify-between items-center space-x-2">
@@ -13,20 +15,20 @@ let dropdownButton = (
 const openModal = () => {};
 
 const Dashboard: React.FC = () => {
+  const [open, setOpen] = useState(false);
   const options = [
     [
       {
-        name: 'Contract file',
-        icon: <FilePlus size={16} strokeWidth={1.5} />,
-        clickAction: openModal,
-      },
-      {
         name: 'Contract Collection',
         icon: <FolderPlus size={16} strokeWidth={1.5} />,
-        clickAction: openModal,
+        clickAction: () => setOpen(true),
       },
     ],
   ];
+
+  const closeModal = () => {
+    setOpen(!open);
+  };
   return (
     <div className="flex flex-col pb-2 pt-10 text-sm h-screen overflow-hidden">
       <div className="overflow-scroll">
@@ -53,6 +55,13 @@ const Dashboard: React.FC = () => {
           <Cards cardInfo={{ name: 'some Contract' }} isCollection={false} />
         </div>
       </div>
+      <DefaultModal
+        title={'Create Collection'}
+        open={open}
+        closeModal={closeModal}
+      >
+        <div className="">Create</div>
+      </DefaultModal>
     </div>
   );
 };

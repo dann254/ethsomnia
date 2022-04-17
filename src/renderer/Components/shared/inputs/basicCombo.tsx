@@ -1,16 +1,20 @@
-import React, { Fragment, useMemo, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useState } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { Check, ChevronDown } from 'react-feather';
-import { chainList, Chains, Chain } from 'eth-chains';
+import { chainList, Chains, Chain } from '../../../helpers/eth-chains';
 import { isEmpty } from 'lodash';
 
-export const Combo: React.FC = () => {
+export const Combo: React.FC<any> = ({ returnSelected }) => {
   const evmChains: Chains = chainList;
 
   const [selected, setSelected] = useState();
   const [query, setQuery] = useState('');
 
-  const filteredChains = useMemo(
+  useEffect(() => {
+    returnSelected(selected);
+  }, [selected]);
+
+  const filteredEntries = useMemo(
     () =>
       query
         ? Object.fromEntries(
@@ -26,9 +30,9 @@ export const Combo: React.FC = () => {
     <div className="">
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
-          <div className="relative w-full text-left rounded-lg shadow-md cursor-default  sm:text-sm overflow-hidden">
+          <div className="relative w-full text-left rounded-lg shadow-md cursor-default  sm:text-sm overflow-hidden ring-1 ring-black dark:ring-white-default/25 ring-opacity-5">
             <Combobox.Input
-              className="w-full border-none focus:ring-0 py-2 pl-3 pr-10 text-sm leading-5 bg-[transparent]"
+              className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 bg-[transparent] focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
               displayValue={(chain: Chain) => chain.name}
               onChange={(event) => setQuery(event.target.value)}
             />
@@ -46,18 +50,18 @@ export const Combo: React.FC = () => {
             leaveTo="opacity-0"
             afterLeave={() => setQuery('')}
           >
-            <Combobox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {isEmpty(filteredChains) && query !== '' ? (
+            <Combobox.Options className="absolute w-full z-20 py-1 mt-1 overflow-auto text-base rounded-md shadow-lg max-h-80 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm dark:bg-[#222222] bg-[#F9FBFD]">
+              {isEmpty(filteredEntries) && query !== '' ? (
                 <div className="cursor-default select-none relative py-2 px-4 text-gray-700">
                   Nothing found.
                 </div>
               ) : (
-                Object.values(filteredChains).map((chain) => (
+                Object.values(filteredEntries).map((chain) => (
                   <Combobox.Option
-                    key={chain.id}
+                    key={chain.chainId}
                     className={({ active }) =>
-                      `cursor-default select-none relative py-2 pl-10 pr-4 ${
-                        active ? 'text-white bg-teal-600' : 'text-gray-900'
+                      `cursor-default select-none  hover:bg-primary/25 relative py-2 pl-10 pr-4 ${
+                        active ? 'text-white bg-primary/40' : 'text-gray-900'
                       }`
                     }
                     value={chain}
