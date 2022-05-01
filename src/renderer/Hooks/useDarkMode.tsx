@@ -5,7 +5,7 @@ export const useDarkMode = () => {
   const darkMode = useThemeStore((state) => state.darkMode);
 
   const toggleTheme = async () => {
-    await window.darkMode.toggle('dark');
+    await window['darkMode'].toggle('dark');
     setTheme();
   };
 

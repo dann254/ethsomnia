@@ -19,6 +19,11 @@ const Dashboard: React.FC = () => {
   const options = [
     [
       {
+        name: 'Single Contract',
+        icon: <FilePlus size={16} strokeWidth={1.5} />,
+        clickAction: () => setOpen(true),
+      },
+      {
         name: 'Contract Collection',
         icon: <FolderPlus size={16} strokeWidth={1.5} />,
         clickAction: () => setOpen(true),

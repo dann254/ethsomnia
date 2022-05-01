@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import Store from 'electron-store';
 
 export default class AppUpdater {
   constructor() {
@@ -25,10 +26,19 @@ export default class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 
-ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
+const store = new Store();
+
+ipcMain.handle('loadContent', async (e, name) => {
+  const data = await store.get(name);
+  return data;
+});
+
+ipcMain.on('saveContent', async (e, data) => {
+  await store.set(data.name, data.value);
+});
+
+ipcMain.on('deleteContent', async (e, name) => {
+  await store.delete(name);
 });
 
 ipcMain.handle('dark-mode:toggle', () => {

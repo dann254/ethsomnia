@@ -1,26 +1,26 @@
 import { contextBridge, ipcRenderer } from 'electron';
 
-contextBridge.exposeInMainWorld('electron', {
-  ipcRenderer: {
-    myPing() {
-      ipcRenderer.send('ipc-example', 'ping');
-    },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    on(channel: string, func: (...args: any[]) => void) {
-      const validChannels = ['ipc-example'];
-      if (validChannels.includes(channel)) {
-        // Deliberately strip event as it includes `sender`
-        ipcRenderer.on(channel, (_event, ...args) => func(...args));
-      }
-    },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    once(channel: string, func: (...args: any[]) => void) {
-      const validChannels = ['ipc-example'];
-      if (validChannels.includes(channel)) {
-        // Deliberately strip event as it includes `sender`
-        ipcRenderer.once(channel, (_event, ...args) => func(...args));
-      }
-    },
+contextBridge.exposeInMainWorld('dbAPI', {
+  get(channel: string, name) {
+    const validChannels = ['loadContent'];
+    if (validChannels.includes(channel)) {
+      return ipcRenderer.invoke(channel, name);
+    }
+    return null;
+  },
+
+  set(channel: string, data) {
+    const validChannels = ['saveContent'];
+    if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, data);
+    }
+  },
+
+  delete(channel: string, name) {
+    const validChannels = ['deleteContent'];
+    if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, name);
+    }
   },
 });
 

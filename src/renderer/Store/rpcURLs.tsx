@@ -1,4 +1,5 @@
 import { devtools, persist } from 'zustand/middleware';
+import { StorageDB } from './StorageDB';
 
 let rpcURLs: any = (set) => ({
   RPCs: [],
@@ -21,6 +22,11 @@ let rpcURLs: any = (set) => ({
     })),
 });
 
-rpcURLs = devtools(persist(rpcURLs, { name: 'RPCs' }));
+rpcURLs = devtools(
+  persist(rpcURLs, {
+    name: 'RPC_storage',
+    getStorage: () => StorageDB,
+  })
+);
 
 export default rpcURLs;
