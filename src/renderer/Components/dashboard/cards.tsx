@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import { MoreHorizontal, FileText, Folder, Clock } from 'react-feather';
+import { ICollection } from 'renderer/Store/shared/types';
 
 interface ICardProps {
-  cardInfo: { name: string };
+  cardInfo: ICollection;
   isCollection?: boolean;
 }
 
-const Cards: React.FC<ICardProps> = (props) => {
+const Card: React.FC<ICardProps> = (props) => {
   const { cardInfo, isCollection = false } = props;
+
+  console.log({ cardInfo });
   return (
     <Link
       to="/workspace"
@@ -41,4 +44,4 @@ const Cards: React.FC<ICardProps> = (props) => {
   );
 };
 
-export default Cards;
+export default Card;

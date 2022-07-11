@@ -61,7 +61,7 @@ export const DefaultModal: React.FC<ModalProps> = (props) => {
                 </button>
               </div>
               <div className="h-full items-start">
-                <div className="h-full mt-2 text-center sm:mt-0 sm:text-left w-full  ">
+                <div className="h-full mt-2 text-center sm:mt-0 sm:text-left w-full ">
                   <Dialog.Title
                     as="h3"
                     className="text-lg leading-6 font-medium border-b  border-blue-yonder/75 dark:border-white-default/25 pb-3 h-8"

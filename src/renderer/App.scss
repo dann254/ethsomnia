@@ -39,6 +39,38 @@
   padding-bottom: 80px;
 }
 
+.networks-select {}
+
+
+@media (prefers-color-scheme: dark) {
+  .networks-select>.networks-select__control {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, .25);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .networks-select>.networks-select__control {
+    background-color: transparent;
+    border: 1px solid rgba(149, 170, 201, 0.75);
+  }
+}
+
+.networks-select>.networks-select__control>.networks-select__value-container {}
+
+.networks-select>.networks-select__control>.networks-select__indicators {}
+
+
+.networks-select>.networks-select__menu {}
+
+.networks-select>.networks-select__menu>.networks-select__menu-list {}
+
+.networks-select>.networks-select__menu>.networks-select__menu-list>.networks-select__option {}
+
+.networks-select__input {
+  background-color: transparent;
+  border: none;
+}
 /*
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
